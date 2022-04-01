@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
 
     IEnumerator Blink()
     {
-        animator.Play("Color Change");
+        animator.Play("Change Color");
         yield return new WaitForSeconds(invuln_time);
         animator.Play("Idle");
     }

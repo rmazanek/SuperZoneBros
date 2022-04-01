@@ -461,7 +461,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.59464335, g: 0.5933161, b: 0.6320754, a: 1}
+  m_Color: {r: 0.59607846, g: 0.5921569, b: 0.6313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp_max: 100
-  invuln_time: 5
+  invuln_time: 1
   spriteRenderer: {fileID: 1801495178}
   color_blink: {r: 0.9716981, g: 0.01375042, b: 0.01375042, a: 1}
 --- !u!95 &1801495184
@@ -626,7 +626,7 @@ Animator:
   m_GameObject: {fileID: 1801495176}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 054aa2607d64c0945b05c216f1c258cb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

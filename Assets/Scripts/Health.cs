@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Color color_blink;
     Color color_normal;
-
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
         hp_current = hp_max;
         color_normal = spriteRenderer.color;
         time_of_last_hit = float.MinValue;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,18 +52,9 @@ public class Health : MonoBehaviour
 
     IEnumerator Blink()
     {
-        float blink_speed = 0.1f;
-        spriteRenderer.color = color_blink;
-        yield return new WaitForSeconds(blink_speed);
-        spriteRenderer.color = color_normal;
-        yield return new WaitForSeconds(blink_speed);
-        spriteRenderer.color = color_blink;
-        yield return new WaitForSeconds(blink_speed);
-        spriteRenderer.color = color_normal;
-        yield return new WaitForSeconds(blink_speed);
-        spriteRenderer.color = color_blink;
-        yield return new WaitForSeconds(blink_speed);
-        spriteRenderer.color = color_normal;
+        animator.Play("Change Color");
+        yield return new WaitForSeconds(invuln_time);
+        animator.Play("Idle");
     }
 
     void Die() {

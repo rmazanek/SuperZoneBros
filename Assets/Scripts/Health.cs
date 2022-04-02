@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     [SerializeField] Color color_blink;
     Color color_normal;
     Animator animator;
+    [SerializeField] HealthDisplay healthDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class Health : MonoBehaviour
     void Heal(long dmg)
     {
         hp_current = Math.Min(hp_current + dmg, hp_max);
+        UpdateHealthDisplay();
     }
 
     public void ApplyDamage(long dmg)
@@ -42,12 +44,21 @@ public class Health : MonoBehaviour
             hp_current = Math.Max(hp_current - dmg, 0);
             time_of_last_hit = cur_time;
             StartCoroutine(Blink());
+            UpdateHealthDisplay();
             if (hp_current <= 0) {
                 Die();
             }
         }
 
 
+    }
+
+    void UpdateHealthDisplay() 
+    {
+        if (healthDisplay != null) 
+        {
+            healthDisplay.SetHealth((float)hp_current / (float)hp_max);
+        }
     }
 
     IEnumerator Blink()

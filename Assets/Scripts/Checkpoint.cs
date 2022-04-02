@@ -16,9 +16,9 @@ public class Checkpoint : MonoBehaviour
     if (respawnable != null)
     {
       respawnable.SetSpawn(gameObject.transform);
+      ChangeToCollectedColor();
     }
   }
-
   void ChangeToCollectedColor()
   {
     spriteRenderer.color = collectedColor;
